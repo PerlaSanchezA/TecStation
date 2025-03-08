@@ -1,0 +1,61 @@
+/* CSS para la pantalla carga 
+.loader {
+    width: fit-content;
+    font-size: 50px;
+    line-height: 1.5;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #49c54400;
+    -webkit-text-stroke: 1px #142850; 
+    background:
+      radial-gradient(1.13em at 50% 1.6em,#00909E 99%,#0000 101%) calc(50% - 1.6em) 0/3.2em 100% text,
+      radial-gradient(1.13em at 50% -0.8em,#0000 99%,#00909E 101%) 50% .8em/3.2em 100% repeat-x  text;
+    animation: l9 3s linear infinite;
+  }
+  .loader:before {
+    content: "TECSTATION";
+  }
+  @keyframes l9 {
+    to {background-position: calc(50% + 1.6em) 0,calc(50% + 3.2em) .8em}
+  }
+  */
+
+  /* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    --c:no-repeat radial-gradient(farthest-side,#00909E 92%,#0000);
+    background: 
+      var(--c) 50%  0, 
+      var(--c) 50%  100%, 
+      var(--c) 100% 50%, 
+      var(--c) 0    50%;
+    background-size: 10px 10px;
+    animation: l18 1s infinite;
+    position: relative;
+  }
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+  .loader::before {    
+    content:"";
+    position: absolute;
+    inset:0;
+    margin: 3px;
+    background: repeating-conic-gradient(#0000 0 35deg,#00909E 0 90deg);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 3px),#000 0);
+    border-radius: 50%;
+  }
+  @keyframes l18 { 
+    100%{transform: rotate(.5turn)}
+  }
+
+    /* Animacion del texto TicStore */
+    
+    
