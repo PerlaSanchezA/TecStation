@@ -1,37 +1,71 @@
 /* Estilo base */
- #loading-screen {
+#loading-screen { /*  */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50%;
-    width: 50%;
-    position: fixed; /* Asegura que cubra toda la pantalla */
-    background-color: #cee3e2;
-  }
-  
-  #loading-screen img {
-    max-width: 100%; /* Ajusta el tamaño máximo al 100% del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    max-height: 80%; /* Para que se adapte en pantallas más pequeñas */
-  }
-  
-  /* Barra de carga */
-#loading-screen {
     flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: #cee3e2;
+    transition: opacity 1s ease-out;  /* Transición suave */
 }
 
+#loading-screen img {
+    max-width: 50%;
+    height: auto;
+    max-height: 30%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Letras carga... */
 .loader {
     width: fit-content;
     font-weight: bold;
     font-family: monospace;
     font-size: 30px;
-    color: #0000;
-    background: linear-gradient(90deg,#00909E calc(50% + 0.5ch),#000 0) right/calc(200% + 1ch) 100%;
+    color: transparent;
+    background: linear-gradient(90deg, #00909E calc(50% + 0.5ch), #000 0) right/calc(200% + 1ch) 100%;
     -webkit-background-clip: text;
-            background-clip: text;
+    background-clip: text;
     animation: l7 2s infinite steps(11);
-  }
-  .loader:before {
-    content:"Loading..."
-  }
-  @keyframes l7 {to{background-position: left}}
+}
+
+.loader:before {
+    content: "Loading...";
+}
+
+@keyframes l7 {
+    to {
+        background-position: left;
+    }
+}
+
+/* Media queries para mejorar la responsividad */
+@media (max-width: 600px) {
+    .loader {
+        font-size: 20px;
+    }
+}
+
+
+/* Permite que la transición sea suave con ayuda del JS logica */
+
+#login-screen {
+    opacity: 0;
+    transition: opacity 1s ease-out;  /* Transición suave para login */
+}
+
+#login-screen.show {
+    opacity: 1;
+}
+
+#menu-screen {
+    opacity: 0;
+    transition: opacity 1s ease-out;  /* Transición suave para el menú */
+}
+
+#menu-screen.show {
+    opacity: 1;
+}
