@@ -1,9 +1,15 @@
-body{
-    background-color: #DAE1E7 ;
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cee3e2; /* Color de fondo */
+  }
 
-@media (max-width: 768px) {
-    .loader {
-        width: 30px;
-    }
-}
+
